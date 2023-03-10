@@ -10,7 +10,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                     
+
                                         <th>Your Name</th>
                                         <th>Your ID</th>
                                         <th>Complain Type</th>
@@ -29,16 +29,17 @@
                                             <td>{{ $Complains->ComplainSection }}</td>
                                             <td>{{ $Complains->Description }}</td>
                                             <td>{{ $Complains->ComplainStatus }}</td>
-                                            <td> <a type="button" style="color:rgb(0, 6, 0); background-color:rgb(223, 92, 65)"
+                                            <td> <a type="button"
+                                                    style="color:rgb(0, 6, 0); background-color:rgb(223, 92, 65)"
                                                     onClick="return confirm('Are you sure')" class="btn btn-danger  m-2"
                                                     href="{{ url('RemoveComplainButton', $Complains->id) }} ">Remove</a>
-                            
-                            
+
+
                                             </td>
-                            
-                            
-                            
-                            
+
+
+
+
                                         </tr>
                                     @endforeach
                                 </tbody>

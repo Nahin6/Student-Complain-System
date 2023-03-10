@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ModController;
+use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,14 @@ Route::controller(StudentController::class)->group(function (){
     Route::get('/ViewComplainList','ViewComplainListFunction' );
     Route::get('/RemoveComplainButton/{id}','RemoveComplainButtonFunction' );
     Route::get('/SeeProfile','SeeProfileFunction' );
+
+});
+
+Route::controller(ParentsController::class)->group(function(){
+Route::get('/ParentsNewComplain','ParentsNewComplainFunction');
+Route::post('/ParentsNewComPlainSubmit','ParentsNewComPlainSubmitFunction');
+Route::get('ParentsViewComplains','ParentsViewComplainsFuntion');
+Route::get('RemoveParentsComplain/{id}','RemoveParentsComplainFunction');
 
 });
 

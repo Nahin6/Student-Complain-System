@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('complains', function (Blueprint $table) {
+        Schema::create('parents_complains', function (Blueprint $table) {
             $table->id();
-            $table->string('StudentName');
-            $table->string('StudentId');
+            $table->string('ParentsName');
             $table->string('ComplainType');
-            $table->string('Description');
             $table->string('ComplainSection');
+            $table->string('message');
             $table->string('ComplainStatus')->nullable();
             $table->string('userID')->nullable();
             $table->timestamps();
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('complains');
+        Schema::dropIfExists('parents_complains');
     }
 };

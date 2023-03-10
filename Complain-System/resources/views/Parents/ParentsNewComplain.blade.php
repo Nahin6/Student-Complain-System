@@ -1,10 +1,9 @@
 
-
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>Complain system</title>
+    <title>Make Complain</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,13 +14,12 @@
 
     <style>
         body{
-            /* background-image: url("template/assets/images/background_picture_for_hero_section.png");
+            background-image: url("template/assets/images/background_picture_for_hero_section.png");
         background-size: cover;
-        background-position: center center; */
-  background: #4ca1af;
+        background-position: center center;
+  /* background: #4ca1af;
   background: -webkit-linear-gradient(to right, #4ca1af, #c4e0e5);
-  background: linear-gradient(to right, #4ca1af, #c4e0e5);
-
+  background: linear-gradient(to right, #4ca1af, #c4e0e5); */
         }
     </style>
 </head>
@@ -32,7 +30,16 @@
     <div class="wrapper d-flex align-items-stretch">
 
         @include('Parents.ParentsSideNav')
-        @include('Parents.ParentsHeroSection')
+
+
+        {{-- @include('Parents.ParentsHeroSection') --}}
+
+
+       @include('Parents.ParentsNewComplainComponnents')
+       {{-- @include('Parents.ParentsViewComplains') --}}
+
+
+        {{-- @include('Parents.ParentsBody') --}}
 
     </div>
 
