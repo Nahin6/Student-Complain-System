@@ -39,7 +39,8 @@ class ModController extends Controller
     }
 public function ModLoginFunction(){
 
-    return view('auth.login',['guard'=>'Moderator']);
+    // return view('auth.login',['guard'=>'Moderator']);
+    return view('auth.ModLogin',['guard'=>'Moderator']);
 }
     /**
      * Show the login view.

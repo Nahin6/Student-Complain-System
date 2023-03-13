@@ -147,6 +147,7 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
 }
 
 .container-contact1 {
@@ -165,6 +166,7 @@ iframe {
   align-items: center;
 
   padding: 90px 130px 88px 148px;
+
 }
 
 /*------------------------------------------------------------------
@@ -180,20 +182,44 @@ iframe {
 
 /*------------------------------------------------------------------
 [  ]*/
+.contact1-form-teacher{
+    height: 531px;
+    width: 390px;
+
+}
+
 .contact1-form {
     height: 511px;
   width: 390px;
+}
+.contact1-form-title-two{
+    color: #1e1d1a !important;
+    font-weight: bold;
+
 }
 
 .contact1-form-title {
   display: block;
   font-family: Montserrat-ExtraBold;
   font-size: 24px;
-  color: #720b36;
+  color: #460a0a;
   line-height: 1.2;
   text-align: center;
   padding-bottom: 44px;
+
 }
+.contact1-form-title-teacher {
+    display: block;
+    font-family: Montserrat-ExtraBold;
+    font-size: 24px;
+    color: #c7c7c7;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 44px;
+    background-color: #136da5;
+
+    border-radius: 30px;
+  }
 
 input.input1 {
   height: 50px;

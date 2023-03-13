@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ModController;
 use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,16 +49,26 @@ Route::controller(StudentController::class)->group(function (){
 Route::controller(ParentsController::class)->group(function(){
 Route::get('/ParentsNewComplain','ParentsNewComplainFunction');
 Route::post('/ParentsNewComPlainSubmit','ParentsNewComPlainSubmitFunction');
-Route::get('ParentsViewComplains','ParentsViewComplainsFuntion');
-Route::get('RemoveParentsComplain/{id}','RemoveParentsComplainFunction');
+Route::get('/ParentsViewComplains','ParentsViewComplainsFuntion');
+Route::get('/RemoveParentsComplain/{id}','RemoveParentsComplainFunction');
 
+});
+
+Route::controller(TeacherController::class)->group(function(){
+
+    Route::get('/TeacherNewComplain','TeacherNewComplainFunction');
+    Route::post('/TeacherNewComPlainSubmit','TeacherNewComPlainSubmitSubmitFunction');
+    Route::get('/TeacherViewComplains','TeacherViewComplainsFunction');
+    Route::get('/RemoveTeacherComplain/{id}','RemoveTeacherComplainFunction');
 });
 
 
 Route::middleware('Moderator:Moderator')->group(function() {
 
+
     Route::get('Moderator/login',[ModController::class, 'ModLoginFunction']);
     Route::post('Moderator/login',[ModController::class, 'store'])->name('Moderator.login');
+   
 });
 
 

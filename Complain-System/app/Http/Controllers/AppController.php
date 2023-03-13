@@ -28,9 +28,9 @@ class AppController extends Controller
 
                 }
 
-            // if ($userType=='Moderator') {
-            // return view('Moderators.ModeratorDashboard');
-            // }
+            if ($userType=='Moderator') {
+            return view('Moderators.ModeratorDashboard');
+            }
 
             else{
                 return View('auth.login');

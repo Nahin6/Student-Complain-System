@@ -14,9 +14,7 @@
             <li>
                 <a href="{{ url('ParentsViewComplains') }}">All Complains</a>
             </li>
-            <li>
-                <a href="#">Apply for Visiting Pass</a>
-            </li>
+            
             @if (Route::has('login'))
                 @auth
 

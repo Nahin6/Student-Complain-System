@@ -62,8 +62,8 @@ class ParentsController extends Controller
         if (Auth::id()) {
 
 
-            $AmbulanceT = ParentsComplain::find($id);
-            $AmbulanceT->delete();
+            $ParentsComplain = ParentsComplain::find($id);
+            $ParentsComplain->delete();
             Alert::info('Complain Removed successfully!!', 'Your Complain has been Removed!');
             return redirect()->back();
         } else {

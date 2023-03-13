@@ -58,8 +58,8 @@ class StudentController extends Controller
         if (Auth::id()) {
 
 
-            $AmbulanceT = Complain::find($id);
-            $AmbulanceT->delete();
+            $Complain = Complain::find($id);
+            $Complain->delete();
             Alert::info('Complain Sent successfully', 'Your Complain has been Removed');
             return redirect()->back();
         } else {

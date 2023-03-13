@@ -19,29 +19,29 @@ class AdminController extends Controller
 
    public function AddModeratorButtonFunction(Request $request){
 
-    $Moderators = new Moderator;
+    // $Moderators = new Moderator;
 
-    $Moderators->name = $request->name;
-    $Moderators->email = $request->email;
-    $Moderators->phone = $request->phone;
-    $Moderators->UserType = $request->UserType='Moderator';
-    $Moderators->password = $request->password='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
-    $Moderators->remember_token = Str::random(10);
+    // $Moderators->name = $request->name;
+    // $Moderators->email = $request->email;
+    // $Moderators->phone = $request->phone;
+    // $Moderators->UserType = $request->UserType='Moderator';
+    // $Moderators->password = $request->password='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
+    // $Moderators->remember_token = Str::random(10);
 
-    $Moderators->save();
-
-
-    // User::insert([
-
-    //     'name'=>$request->name,
-    //     'email'=>$request->email,
-    //     'phone'=>$request->phone,
-    //     'UserType'=>$request->UserType='Moderator',
-    //     'password'=>$request->password='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' // password
+    // $Moderators->save();
 
 
-    // ]);
-    Alert::success('successfull', 'Added successfully');
+    User::insert([
+
+        'name'=>$request->name,
+        'email'=>$request->email,
+        'phone'=>$request->phone,
+        'UserType'=>$request->UserType='Moderator',
+        'password'=>$request->password='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' // password
+
+
+    ]);
+    Alert::success('successfull', 'Moderator Added successfully');
     return redirect()->back();
 }
 
