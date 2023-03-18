@@ -48,7 +48,7 @@ class AdminController extends Controller
 public function ViewModeratorsListFunction(){
 if(Auth::id()){
 
-    $Moderators = Moderator::all();
+    $Moderators = User::where('UserType', '=', 'Moderator')->get();
     return view('admin.AdminViewModList', compact('Moderators'));
 
 }
@@ -60,7 +60,7 @@ public function RemoveModFunction($id){
     if(Auth::id()){
 
 
-        $Moderators = Moderator::find($id);
+        $Moderators = User::find($id);
         $Moderators->delete();
         Alert::info('uccessfull', 'Removed successfully');
         return redirect()->back();

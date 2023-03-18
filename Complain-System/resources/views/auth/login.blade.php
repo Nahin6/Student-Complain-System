@@ -67,6 +67,11 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout> --}}
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,8 +88,11 @@
 <body>
 
     <div class="main">
+
         <section class="sign-in">
             <div class="container">
+                <x-jet-validation-errors class="mb-4 error-message" />
+                <div class="error-message" id="error-message"></div>
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="template/assets/images/loginPage.png" alt="sing up image"></figure>
@@ -98,13 +106,13 @@
                             <div class="form-group">
 
                                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email"
-                                    :value="old('email')" placeholder="Your email" required autofocus />
+                                    :value="old('email')" placeholder="Your email" />
                             </div>
 
                             <div class="mt-4" class="form-group">
 
                                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password"
-                                    required placeholder="Password" autocomplete="current-password" />
+                                    placeholder="Password" autocomplete="current-password" />
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
@@ -129,8 +137,44 @@
     </div>
 
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+
+    <script>
+        // Get the form and error message elements
+        var form = document.querySelector('form');
+        var errorMessage = document.querySelector('#error-message');
+
+        form.addEventListener('submit', function(event) {
+            // Prevent the form from submitting
+            event.preventDefault();
+
+            // Get the email and password values
+            var email = document.querySelector('#email').value;
+            var password = document.querySelector('#password').value;
+
+            // Validate the email and password values
+            if (email === '' && password === '') {
+                // Show the error message
+                errorMessage.textContent = 'Please enter both email and password.';
+                errorMessage.style.display = 'block';
+            } else if (email === '') {
+                // Show the error message
+                errorMessage.textContent = 'Please enter your email.';
+                errorMessage.style.display = 'block';
+            } else if (password === '') {
+                // Show the error message
+                errorMessage.textContent = 'Please enter your password.';
+                errorMessage.style.display = 'block';
+            } else {
+                // Submit the form if the email and password are not empty
+                form.submit();
+            }
+
+            // Set a timer of 3 seconds to hide the error message
+            setTimeout(function() {
+                errorMessage.style.display = 'none';
+            }, 3000);
+        });
+    </script>
 </body>
 
 </html>

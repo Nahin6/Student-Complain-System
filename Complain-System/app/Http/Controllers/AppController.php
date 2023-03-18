@@ -34,6 +34,8 @@ class AppController extends Controller
 
             else{
                 return View('auth.login');
+
+                // return redirect()->back()->with('success', 'wrong credentials!!');
             }
     }
 

@@ -203,6 +203,20 @@ background: transparent; }
     font-weight: 600;
 
     font-family: Poppins; }
+    .fa-eye {
+        cursor: pointer;
+    }
+	.error-message {
+
+        display: none;
+        background-color: #ffcccc;
+        color: #ff0000;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
 
   .container {
     width: 1000px;
@@ -326,16 +340,33 @@ background: transparent; }
 
    #email{
     width: 100%;
-    height: 40px;
+    height: 45px;
     display: block;
     border: none;
     border-bottom: 1.5px solid #6e1f1f;
     padding: 6px 30px;
 
    }
-   #password{
+
+   #show-password-icon{
+margin:330px;
+
+   }
+   /* #pass-form{
+    display:flex;
+    
+   } */
+   #password {
     width: 100%;
-    height: 40px;
+    height: 45px;
+    display: block;
+    border: none;
+    border-bottom: 1.5px solid #6e1f1f;
+    padding: 6px 30px;
+   }
+   #re_password{
+    width: 100%;
+    height: 45px;
     display: block;
     border: none;
     border-bottom: 1.5px solid #6e1f1f;
