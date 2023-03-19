@@ -83,6 +83,7 @@
     <link rel="stylesheet" href="template/assets/css/LoginSignUp/LoginSignUp.css">
     <link rel="stylesheet"
         href="template/assets/css/LoginSignUp/fonts/material-icon/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
@@ -109,10 +110,13 @@
                                     :value="old('email')" placeholder="Your email" />
                             </div>
 
-                            <div class="mt-4" class="form-group">
+                            <div class="form-group">
 
-                                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password"
+                                <x-jet-input id="password" class="block mt-1 w-full InputDesign" type="password" name="password"
                                     placeholder="Password" autocomplete="current-password" />
+                                    <span id="show-password-icon" class="ShowHidePass" onclick="togglePasswordVisibility()" >
+                                        <i class="fas fa-eye" aria-hidden="true"></i>
+                                      </span>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
@@ -174,6 +178,19 @@
                 errorMessage.style.display = 'none';
             }, 3000);
         });
+
+        function togglePasswordVisibility() {
+  const passwordInput = document.getElementById("password");
+  const showPasswordIcon = document.getElementById("show-password-icon");
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    showPasswordIcon.innerHTML = '<i class="fas fa-eye-slash"></i>';
+  } else {
+    passwordInput.type = "password";
+    showPasswordIcon.innerHTML = '<i class="fas fa-eye"></i>';
+  }
+}
     </script>
 </body>
 

@@ -1,22 +1,29 @@
-<div class="main-panel">
-    <div class="content-wrapper">
+<!DOCTYPE html>
+<html lang="en">
 
-    </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complaint System</title>
+    <link rel="stylesheet" href="template/assets/css/parents/NewStyle.css">
+</head>
+<div id="content" class="p-4 p-md-5 pt-5">
+    <section class="hero" id="Hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="hero-content">
+                        <h1>Student Complaint System</h1>
+                        <p>
+                            We are committed to providing a safe and respectful learning environment for all students. If you have a complaint or concern, please use this system to submit your feedback. Our team will review your complaint and take appropriate action to address the issue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
-<!-- content-wrapper ends -->
-<!-- partial:partials/_footer.html -->
-{{-- <footer class="footer">
-    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-            bootstrapdash.com 2021</span>
-        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
-                href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin
-                template</a> from Bootstrapdash.com</span>
-    </div>
-</footer>
-<!-- partial -->
-</div>
-<!-- main-panel ends -->
-</div>
-<!-- page-body-wrapper ends -->
-</div> --}}
+</body>
+
+</html>

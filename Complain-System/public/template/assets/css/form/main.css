@@ -155,7 +155,6 @@ iframe {
   background: #e8dfdf;
   border-radius: 10px;
   overflow: hidden;
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -182,10 +181,30 @@ iframe {
 
 /*------------------------------------------------------------------
 [  ]*/
+.contact1-form-visit{
+    height: 50%;
+    width:100%;
+}
 .contact1-form-teacher{
     height: 531px;
     width: 390px;
 
+}
+.contact1-form-Student{
+    height: 558px;
+    width: 390px;
+
+}
+.error-message {
+
+    display: none;
+    background-color: #ffcccc;
+    color: #ff0000;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .contact1-form {
@@ -479,3 +498,9 @@ textarea.input1 + .shadow-input1 {
     opacity: 1;
   }
 }
+
+
+/* ========================================== */
+/* booking form */
+/* ============================================== */
+

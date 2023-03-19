@@ -51,7 +51,10 @@ Route::get('/ParentsNewComplain','ParentsNewComplainFunction');
 Route::post('/ParentsNewComPlainSubmit','ParentsNewComPlainSubmitFunction');
 Route::get('/ParentsViewComplains','ParentsViewComplainsFuntion');
 Route::get('/RemoveParentsComplain/{id}','RemoveParentsComplainFunction');
-
+Route::get('/ApplyForVisitCampus','ApplyForVisitCampusFuntion');
+Route::post('/ApplyForVisitPassSubmit','ApplyForVisitPassSubmitFunction');
+Route::get('/CheckForVisitCampus','CheckForVisitCampusFuntion');
+Route::get('/RemoveVisitPassButton/{id}','RemoveVisitPassButtonFunction');
 });
 
 Route::controller(TeacherController::class)->group(function(){
@@ -68,7 +71,7 @@ Route::middleware('Moderator:Moderator')->group(function() {
 
     Route::get('Moderator/login',[ModController::class, 'ModLoginFunction']);
     Route::post('Moderator/login',[ModController::class, 'store'])->name('Moderator.login');
-   
+
 });
 
 

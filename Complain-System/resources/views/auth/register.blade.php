@@ -150,7 +150,7 @@
                             </div>
                             <div class="form-group">
 
-                                <select name="UserType" id="email" style="width: 100%; text-align: center"
+                                <select name="UserType"  class="InputDesign" style="width: 100%; text-align: center"
                                     placeholder="Select your Designation">>
                                     <option value="" disabled selected>Select your Designation</option>
                                     <option value="Student">Student</option>
@@ -163,19 +163,19 @@
 
                             <div class="form-group" id="pass-form">
 
-                                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password"
+                                <x-jet-input id="password" class="block mt-1 w-full InputDesign" type="password" name="password"
                                     placeholder="Password" autocomplete="current-password" />
-                                    <span id="show-password-icon" onclick="togglePasswordVisibility()">
-                                        <i class="fas fa-eye"></i>
+                                    <span id="show-password-icon" class="ShowHidePass" onclick="togglePasswordVisibility()" >
+                                        <i class="fas fa-eye" aria-hidden="true"></i>
                                       </span>
                             </div>
                             <div class="form-group">
 
-                                <x-jet-input id="re_password" class="block mt-1 w-full" type="password"
+                                <x-jet-input id="re_password" class="block mt-1 w-full InputDesign" type="password"
                                     name="password_confirmation" placeholder="Confirm Password"
                                     autocomplete="current-password" />
-                                    <span id="show-password-iconn" onclick="toggleRePasswordVisibility()">
-                                        <i class="fas fa-eye"></i>
+                                    <span id="show-password-iconn" class="ShowHidePass" onclick="toggleRePasswordVisibility()">
+                                        <i class="fas fa-eye" aria-hidden="true"></i>
                                       </span>
                             </div>
                             <div class="form-group">

@@ -1,17 +1,11 @@
-<head>
-    <!-- Required meta tags -->
+{{-- <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Student</title>
-    <!-- plugins:css -->
+
 
 </head>
-
-
-
-
-
-
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
@@ -36,141 +30,88 @@
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link" href="{{ url('NewComplain') }}">
-                {{-- <span class="menu-icon">
 
-                </span> --}}
                 <span class="menu-title"> <i class="fas fa-pen"></i> <b>New Complain</b> </span>
             </a>
         </li>
         <li class="nav-item menu-items mt-3">
             <a class="nav-link" href="{{ url('ViewComplainList') }}">
-                {{-- <span class="menu-icon">
 
-                </span> --}}
                 <span class="menu-title "> <i class="fa-sharp fa-solid fa-eye"></i> <b>All Complains</b> </span>
             </a>
 
-        @if (Route::has('login'))
-            @auth
+            @if (Route::has('login'))
+                @auth
             <li class="nav-item menu-items mt-3">
 
-                <a class="nav-link" href="{{url('SeeProfile')}}">
-                    {{-- <span class="menu-icon">Profile
+                <a class="nav-link" href="{{ url('SeeProfile') }}">
 
-                        </span> --}}
                     <span class="menu-title "> <i class="fa-sharp fa-solid fa-user"> </i> <b>Profile</b></span>
                 </a>
             </li>
-                <li class="nav-item menu-items  mt-3">
-                    <a class="nav-link" href="{{ url('logout') }}">
-                        {{-- <span class="menu-icon">
-{{ route('logout') }}
-                </span> --}}
-                        <span class="menu-title"> <i class="fa-solid fa-right-from-bracket"></i><b>Logout</b> </span>
-                    </a>
-                </li>
-            @else
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ url('NewComplain') }}">
-                        {{-- <span class="menu-icon">
+            <li class="nav-item menu-items  mt-3">
+                <a class="nav-link" href="{{ url('logout') }}">
 
-                </span> --}}
-                        <span class="menu-title"> <i class="fas fa-pen"></i> <b>Login</b> </span>
-                    </a>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ url('NewComplain') }}">
-                        {{-- <span class="menu-icon">
+                    <span class="menu-title"> <i class="fa-solid fa-right-from-bracket"></i><b>Logout</b> </span>
+                </a>
+            </li>
+        @else
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="{{ url('NewComplain') }}">
 
-                </span> --}}
-                        <span class="menu-title"> <i class="fas fa-pen"></i> <b>Register</b> </span>
-                    </a>
-                </li>
+                    <span class="menu-title"> <i class="fas fa-pen"></i> <b>Login</b> </span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="{{ url('NewComplain') }}">
+
+                    <span class="menu-title"> <i class="fas fa-pen"></i> <b>Register</b> </span>
+                </a>
+            </li>
             @endif
         @endauth
-        {{-- <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                aria-controls="ui-basic">
-                <span class="menu-icon">
-                    <i class="mdi mdi-laptop"></i>
-                </span>
-                <span class="menu-title">Basic UI Elements</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="template/pages/ui-features/buttons.html">Buttons</a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link"
-                            href="template/pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                    <li class="nav-item"> <a class="nav-link"
-                            href="template/pages/ui-features/typography.html">Typography</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="template/pages/forms/basic_elements.html">
-                <span class="menu-icon">
-                    <i class="mdi mdi-playlist-play"></i>
-                </span>
-                <span class="menu-title">Form Elements</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="template/pages/tables/basic-table.html">
-                <span class="menu-icon">
-                    <i class="mdi mdi-table-large"></i>
-                </span>
-                <span class="menu-title">Tables</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="template/pages/charts/chartjs.html">
-                <span class="menu-icon">
-                    <i class="mdi mdi-chart-bar"></i>
-                </span>
-                <span class="menu-title">Charts</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="template/pages/icons/mdi.html">
-                <span class="menu-icon">
-                    <i class="mdi mdi-contacts"></i>
-                </span>
-                <span class="menu-title">Icons</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <span class="menu-icon">
-                    <i class="mdi mdi-security"></i>
-                </span>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="template/pages/samples/blank-page.html">
-                            Blank Page </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="template/pages/samples/error-404.html">
-                            404 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="template/pages/samples/error-500.html">
-                            500 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="template/pages/samples/login.html"> Login
-                        </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="template/pages/samples/register.html">
-                            Register </a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link"
-                href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-                <span class="menu-icon">
-                    <i class="mdi mdi-file-document-box"></i>
-                </span>
-                <span class="menu-title">Documentation</span>
-            </a>
-        </li> --}}
+
     </ul>
+</nav> --}}
+
+<nav id="sidebar">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+        </button>
+    </div>
+    <div class="p-4 pt-5">
+        <h1><a href="{{ url('redirect') }}" class="logo">Complain System</a></h1>
+        <ul class="list-unstyled components mb-5">
+            <li>
+                <a href="{{ url('NewComplain') }}">New Complain</a>
+            </li>
+            <li>
+                <a href="{{ url('ViewComplainList') }}">All Complains</a>
+            </li>
+
+            @if (Route::has('login'))
+                @auth
+
+
+                    <li>
+                        <a href="{{ url('SeeProfile') }}">Profile</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('logout') }}">Logout</a>
+                    </li>
+                @else
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Register</a>
+                    </li>
+
+                @endauth
+            @endif
+
+        </ul>
+    </div>
 </nav>

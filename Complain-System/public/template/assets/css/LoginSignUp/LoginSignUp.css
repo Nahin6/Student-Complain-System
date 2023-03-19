@@ -347,31 +347,22 @@ background: transparent; }
     padding: 6px 30px;
 
    }
+.ShowHidePass{
+    z-index: 9999;
+	position: absolute;
+	top: 30%;
+	right: 10px;
+}
 
-   #show-password-icon{
-margin:330px;
-
-   }
-   /* #pass-form{
-    display:flex;
-    
-   } */
-   #password {
+.InputDesign{
     width: 100%;
     height: 45px;
     display: block;
     border: none;
     border-bottom: 1.5px solid #6e1f1f;
     padding: 6px 30px;
-   }
-   #re_password{
-    width: 100%;
-    height: 45px;
-    display: block;
-    border: none;
-    border-bottom: 1.5px solid #6e1f1f;
-    padding: 6px 30px;
-   }
+}
+
 
   input {
     width: 100%;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 
@@ -8,17 +8,15 @@
        @include('sweetalert::alert')
 
         @include('Student.StudentLinks')
-        <!-- partial:partials/_sidebar.html -->
+
         @include('Student.StudentSideNav')
-        <!-- partial -->
-        {{-- <div class="main-panel">
-            <div class="content-wrapper" style="width:194%; background-color:rgba(74, 76, 79, 0.459)"> --}}
+
 
 
         <form action="{{ url('MakeNewComPlainButton') }}" class="col-12 grid-margin stretch-card" method="POST"
              enctype="multipart/form-data">
             @csrf
-         
+
             <div class="col-12 grid-margin stretch-card">
                 <div class="card mt-5">
                     <div class="card-body">
@@ -71,22 +69,162 @@
                             </div>
 
                         </form>
-                      
+
                     </div>
                 </div>
             </div>
         </form>
-        {{-- </div>
 
-
-        </div> --}}
-        <!-- partial:partials/_navbar.html -->
         @include('Student.StudentHeaderNav')
-        <!-- partial -->
-        {{-- body --}}
 
-        {{-- body --}}
 
+
+</body>
+
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>New Complain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="template/assets/css/parents/style.css">
+    <link rel="stylesheet" href="template/assets/css/form/util.css">
+    <link rel="stylesheet" href="template/assets/css/form/main.css">
+</head>
+
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+    @include('Student.StudentSideNav')
+    @include('sweetalert::alert')
+        <div class="contact1">
+
+            <div class="container-contact1">
+
+                <div class="contact1-pic js-tilt" data-tilt>
+                    <img src="template/assets/images/img-01.png" alt="IMG">
+                </div>
+                <form action="{{ url('MakeNewComPlainButton') }}" id="myForm" class="contact1-form-Student validate-form" method="POST"
+                enctype="multipart/form-data">
+
+                @csrf
+                <div class="error-message" id="error-message"></div>
+                <span class="contact1-form-title">
+                    Welcome <span class="contact1-form-title-two">{{ Auth::user()->name }}</span> Your feedback matters - report any concerns and help us create a safe and supportive learning community.
+                </span>
+
+                    <div class="wrap-input1 validate-input" data-validate="Name is required">
+
+                        <label for="" class="complain-lvl">Complain Type</label>
+                        <select name="ComplainType" class="input1" id="ComplainDropDown">
+
+                            <option value="Normal">Normal</option>
+                            <option value="Argent">Argent</option>
+                            <span class="shadow-input1"></span>
+
+                        </select>
+                    </div>
+                    <div class="wrap-input1 validate-input" data-validate="Name is required">
+
+                        <label for="" class="complain-lvl">Complain Section</label>
+                        <select name="ComplainSection" class="input1" id="ComplainDropDown">
+
+                            <option value="IT">IT</option>
+                            <option value="LAb">Lab</option>
+                            <option value="Administrator">Administrator</option>
+                            <option value="General">General</option>
+                            <span class="shadow-input1"></span>
+
+                        </select>
+                    </div>
+
+                    <div class="wrap-input1 validate-input" data-validate="Message is required">
+                        <label for="" class="complain-lvl">Write in details about your Complain</label>
+                        <textarea class="input1" name="Description" placeholder="Message"></textarea>
+                        <span class="shadow-input1"></span>
+                    </div>
+
+                    <div class="container-contact1-form-btn">
+                        <button class="contact1-form-btn">
+                            <span>
+                                Submit Complain
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+     <script src="template/assets/js/NavJs/jquery.min.js"></script>
+     <script src="template/assets/js/NavJs/popper.js"></script>
+     <script src="template/assets/js/NavJs/bootstrap.min.js"></script>
+     <script src="template/assets/js/NavJs/main.js"></script>
+
+
+    {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script> --}}
+    <script>
+
+
+        const form = document.getElementById('myForm');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+
+            const ComplainType = document.getElementsByName('ComplainType')[0].value.trim();
+            const ComplainSection = document.getElementsByName('ComplainSection')[0].value.trim();
+            const Description = document.getElementsByName('Description')[0].value.trim();
+
+            if (ComplainType === '') {
+                showError('Please select a Complain Type.');
+
+                return;
+            }
+
+            if (ComplainSection === '') {
+                showError('Please select a Complain Section.');
+                return;
+            }
+
+            if (Description === '') {
+                showError('Please Discribe your problems');
+                return;
+            }
+            form.submit();
+        });
+        function showError(message) {
+
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+        function showError(message) {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            errorMessage.scrollIntoView({
+                behavior: 'smooth'
+            });
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 4000);
+        }
+    </script>
 
 </body>
 
