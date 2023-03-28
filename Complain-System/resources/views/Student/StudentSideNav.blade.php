@@ -90,6 +90,9 @@
             <li>
                 <a href="{{ url('ViewComplainList') }}">All Complains</a>
             </li>
+            <li>
+                <a href="{{ route('StudViewFeedback') }}">View Feedback</a>
+            </li>
 
             @if (Route::has('login'))
                 @auth

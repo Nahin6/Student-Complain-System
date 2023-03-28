@@ -14,6 +14,9 @@
             <li>
                 <a href="{{ url('TeacherViewComplains') }}">All Complains</a>
             </li>
+            <li>
+                <a href="{{ route('TeacherViewFeedback') }}">View Feedback</a>
+            </li>
             @if (Route::has('login'))
                 @auth
 

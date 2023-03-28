@@ -59,4 +59,21 @@ class TeacherController extends Controller
         }
 
     }
+    public function TeacherViewFeedbackFunction(){
+
+        if (Auth::id()) {
+
+            $complaints = TeachersComplain::leftJoin('solution_for_teachers', 'teachers_complains.id', '=', 'solution_for_teachers.complaint_id')
+            ->select('teachers_complains.TeacherName', 'teachers_complains.ComplainType', 'solution_for_teachers.solution')
+            ->get();
+
+            // return view('complaints.index', ['complaints' => $complaints]);
+
+
+            return view('Teacher.TeacherViewFeedback', compact('complaints'));
+        }
+        else {
+            return view('auth.login');
+        }
+    }
 }

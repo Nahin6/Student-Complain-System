@@ -83,7 +83,7 @@
     <link rel="stylesheet" href="template/assets/css/LoginSignUp/LoginSignUp.css">
     <link rel="stylesheet"
         href="template/assets/css/LoginSignUp/fonts/material-icon/css/material-design-iconic-font.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
@@ -92,31 +92,42 @@
 
         <section class="sign-in">
             <div class="container">
-                <x-jet-validation-errors class="mb-4 error-message" />
+
+
+
                 <div class="error-message" id="error-message"></div>
                 <div class="signin-content">
+
                     <div class="signin-image">
                         <figure><img src="template/assets/images/loginPage.png" alt="sing up image"></figure>
                         <a href="{{ route('register') }}" class="signup-image-link">Dont have an account?</a>
                     </div>
                     <div class="signin-form">
+                        @if ($errors->any())
+                            <div class="alert alert-danger" id="error-message">
+                                @foreach ($errors->all() as $error)
+                                    <p class="errorMessage">{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        @endif
                         <h2 class="form-title">Sign in</h2>
                         <form method="POST" class="register-form" id="login-form"
                             action="{{ isset($guard) ? url($guard . '/login') : route('login') }}">
                             @csrf
-                            <div class="form-group">
 
+                            <div class="form-group">
                                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email"
                                     :value="old('email')" placeholder="Your email" />
+
                             </div>
 
                             <div class="form-group">
 
-                                <x-jet-input id="password" class="block mt-1 w-full InputDesign" type="password" name="password"
-                                    placeholder="Password" autocomplete="current-password" />
-                                    <span id="show-password-icon" class="ShowHidePass" onclick="togglePasswordVisibility()" >
-                                        <i class="fas fa-eye" aria-hidden="true"></i>
-                                      </span>
+                                <x-jet-input id="password" class="block mt-1 w-full InputDesign" type="password"
+                                    name="password" placeholder="Password" autocomplete="current-password" />
+                                <span id="show-password-icon" class="ShowHidePass" onclick="togglePasswordVisibility()">
+                                    <i class="fas fa-eye" aria-hidden="true"></i>
+                                </span>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
@@ -139,8 +150,6 @@
             </div>
         </section>
     </div>
-
-
 
     <script>
         // Get the form and error message elements
@@ -180,18 +189,20 @@
         });
 
         function togglePasswordVisibility() {
-  const passwordInput = document.getElementById("password");
-  const showPasswordIcon = document.getElementById("show-password-icon");
+            const passwordInput = document.getElementById("password");
+            const showPasswordIcon = document.getElementById("show-password-icon");
 
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    showPasswordIcon.innerHTML = '<i class="fas fa-eye-slash"></i>';
-  } else {
-    passwordInput.type = "password";
-    showPasswordIcon.innerHTML = '<i class="fas fa-eye"></i>';
-  }
-}
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                showPasswordIcon.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                passwordInput.type = "password";
+                showPasswordIcon.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        }
     </script>
+
+
 </body>
 
 </html>

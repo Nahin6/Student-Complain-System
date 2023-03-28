@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="template/assets/css/form/main.css">
     <style>
         body{
-            
+
   background: #4ca1af;
   background: -webkit-linear-gradient(to right, #4ca1af, #c4e0e5);
   background: linear-gradient(to right, #4ca1af, #c4e0e5);
@@ -62,7 +62,7 @@
                         <select name="ComplainSection" class="input1" id="ComplainDropDown">
                             <option value="" disabled selected>Select a Complain Section</option>
                             <option value="IT">IT</option>
-                            <option value="LAb">Lab</option>
+                            <option value="Lab">Lab</option>
                             <option value="Administrator">Administrator</option>
                             <option value="General">General</option>
                             <span class="shadow-input1"></span>
@@ -91,7 +91,7 @@
 
 
        {{-- @include('Parents.ParentsNewComplainComponnents') --}}
-      
+
 
     </div>
 

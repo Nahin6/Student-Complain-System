@@ -154,61 +154,6 @@
 
             <div class="container-contact1">
 
-                {{-- <form action="{{ url('TeacherNewComPlainSubmit') }}" class="contact1-form-teacher validate-form"
-                    method="POST" enctype="multipart/form-data">
-
-                    @csrf
-
-                    <div class="wrap-input1 validate-input" data-validate="Name is required">
-                        <label for="" class="complain-lvl">Your Name</label>
-                        <input class="input1" type="text" name="name" placeholder="Name">
-                        <span class="shadow-input1"></span>
-                    </div>
-
-                    <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <label for="" class="complain-lvl">Your Email</label>
-                        <input class="input1" type="email" name="email" placeholder="Email">
-                        <span class="shadow-input1"></span>
-
-                    </div>
-
-                    <div class="wrap-input1 validate-input" data-validate="Name is required">
-                        <label for="" class="complain-lvl">Your Number</label>
-                        <input class="input1" type="number" name="phone" placeholder="phone">
-                        <span class="shadow-input1"></span>
-                    </div>
-                    <div class="wrap-input1 validate-input" data-validate="Name is required">
-                        <label for="" class="complain-lvl">ID of the student you are visiting</label>
-                        <input class="input1" type="number" name="StudentId" placeholder="Student ID">
-                        <span class="shadow-input1"></span>
-                    </div>
-                    <div class="wrap-input1 validate-input" data-validate="Name is required">
-                        <label for="" class="complain-lvl">Relationship to the student</label>
-                        <select name="ComplainType" class="input1" id="ComplainDropDown">
-                            <option value="Father">Father</option>
-                            <option value="Mother">Mother</option>
-                            <option value="Sister">Sister</option>
-                            <option value="Brother">Brother</option>
-                            <span class="shadow-input1"></span>
-                        </select>
-                    </div>
-
-                    <div class="wrap-input1 validate-input" data-validate="Message is required">
-                        <label for="" class="complain-lvl">Purpose of the visit</label>
-                        <textarea class="input1" name="Purpose" placeholder="Purpose"></textarea>
-                        <span class="shadow-input1"></span>
-                    </div>
-
-                    <div class="container-contact1-form-btn">
-                        <button class="contact1-form-btn">
-                            <span>
-                                Submit Complain
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </span>
-                        </button>
-                    </div>
-                </form> --}}
-
                 <form action="{{ url('ApplyForVisitPassSubmit') }}" id="VisitForm" class="contact1-form-visit validate-form"
                     method="POST" enctype="multipart/form-data">
 
@@ -323,7 +268,7 @@
             const Date = document.getElementsByName('Date')[0].value.trim();
             const VisitHour = document.getElementsByName('VisitHour')[0].value.trim();
             const Purpose = document.getElementsByName('Purpose')[0].value.trim();
-            
+
 
             if (name === '') {
                 showError('Please enter your name.');

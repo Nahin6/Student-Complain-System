@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Complain;
+use App\Models\SolutionForStud;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -53,7 +54,8 @@ class StudentController extends Controller
         }
     }
 
-    public function RemoveComplainButtonFunction($id){
+    public function RemoveComplainButtonFunction($id)
+    {
 
         if (Auth::id()) {
 
@@ -66,17 +68,55 @@ class StudentController extends Controller
 
             return view('auth.login');
         }
-
     }
-    public function SeeProfileFunction(){
+
+
+
+
+    public function StudViewFeedbackFunction()
+    {
+
+        if (Auth::id()) {
+            $complaints = Complain::leftJoin('solution_for_studs', 'complains.id', '=', 'solution_for_studs.complaint_id')
+            ->select('complains.StudentName', 'complains.ComplainType', 'solution_for_studs.solution')
+            ->get();
+
+            // return view('complaints.index', ['complaints' => $complaints]);
+
+
+            return view('Student.StudentViewFeedback', compact('complaints'));
+        } else {
+
+            return view('auth.login');
+        }
+    }
+
+
+
+    // public function RemoveFeedbackButtonFunction($id)
+    // {
+
+    //     if (Auth::id()) {
+
+    //         $solution = SolutionForStud::findOrFail($id);
+    //         $solution->delete();
+    //         Alert::info('removed successfully', 'Your qeury has been Removed');
+    //         return redirect()->back();
+    //     } else {
+
+    //         return view('auth.login');
+    //     }
+    // }
+
+
+    public function SeeProfileFunction()
+    {
 
         if (Auth::id()) {
             return view('profile.show');
-             }
-        else {
+        } else {
 
             return view('auth.login');
         }
     }
 }
-

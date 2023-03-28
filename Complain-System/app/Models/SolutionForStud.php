@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Complain extends Model
+class SolutionForStud extends Model
 {
     use HasFactory;
 
-
-    public function solution()
+    public function complaint()
 {
-    return $this->hasOne(SolutionForStud::class);
+    return $this->belongsTo(Complain::class);
 }
+
 }

@@ -135,7 +135,7 @@
                         <select name="ComplainSection" class="input1" id="ComplainDropDown">
 
                             <option value="IT">IT</option>
-                            <option value="LAb">Lab</option>
+                            <option value="Lab">Lab</option>
                             <option value="Administrator">Administrator</option>
                             <option value="General">General</option>
                             <span class="shadow-input1"></span>

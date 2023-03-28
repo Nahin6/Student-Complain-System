@@ -1,3 +1,4 @@
+
 <nav id="sidebar">
     <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -9,25 +10,20 @@
         <h1><a href="{{ url('redirect') }}" class="logo">Complain System</a></h1>
         <ul class="list-unstyled components mb-5">
             <li>
-                <a href="{{ url('ParentsNewComplain') }}">New Complain</a>
+                <a href="{{ route('SeeStudentsComplain') }}">Students Complains</a>
             </li>
             <li>
-                <a href="{{ url('ParentsViewComplains') }}">All Complains</a>
+                <a href="{{ route('SeeTeacherComplain') }}">Teachers Complains</a>
             </li>
             <li>
-                <a href="{{ route('ParentsViewFeedback') }}">View Feedback</a>
+                <a href="{{ route('SeeParentsComplain') }}">Parents Complains</a>
             </li>
             <li>
-                <a href="{{ url('ApplyForVisitCampus') }}">Apply for visting pass</a>
-            </li>
-            <li>
-                <a href="{{ url('CheckForVisitCampus') }}">Check Visiting Pass</a>
+                <a href="{{ url('ViewParentsComplain') }}">Visiting pass requests</a>
             </li>
 
             @if (Route::has('login'))
                 @auth
-
-
                     <li>
                         <a href="{{ url('SeeProfile') }}">Profile</a>
                     </li>

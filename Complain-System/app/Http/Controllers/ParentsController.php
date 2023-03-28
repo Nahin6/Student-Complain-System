@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\ParentsComplain;
 use App\Models\StoreVisitPass;
+use Illuminate\Database\Eloquent\Model;
+use PDF;
 
 class ParentsController extends Controller
 {
@@ -72,6 +74,27 @@ class ParentsController extends Controller
             return view('auth.login');
         }
     }
+//to see what feedback moderator has given
+public function ParentsViewFeedbackFuntion(){
+
+    if (Auth::id()) {
+
+        $complaints = ParentsComplain::leftJoin('solution_for_parents', 'parents_complains.id', '=', 'solution_for_parents.complaint_id')
+        ->select('parents_complains.ParentsName', 'parents_complains.ComplainType', 'solution_for_parents.solution')
+        ->get();
+
+        return view('Parents.ParentsViewFeedback', compact('complaints'));
+
+
+    }
+    else {
+        return view('auth.login');
+    }
+}
+
+
+
+// parents apply for visiting pass page
     public function ApplyForVisitCampusFuntion()
     {
         if (Auth::id()) {
@@ -82,6 +105,7 @@ class ParentsController extends Controller
             return view('auth.login');
         }
     }
+//storing information about parents apply for visiting pass
     public function ApplyForVisitPassSubmitFunction(Request $request)
     {
         if (Auth::id()) {
@@ -124,7 +148,6 @@ class ParentsController extends Controller
     public function RemoveVisitPassButtonFunction($id)
     {
 
-
         if (Auth::id()) {
 
 
@@ -137,4 +160,21 @@ class ParentsController extends Controller
             return view('auth.login');
         }
     }
+    public function DownloadVisitPassButtonFuntion($id) {
+        if (Auth::id()) {
+
+            $visit_pass = StoreVisitPass::find($id);
+
+            if (!$visit_pass || $visit_pass->VisitingStatus !== 'Approved') {
+                return redirect()->back()->with('error', 'Visit pass not found or not approved.');
+            }
+            // return View('Parents.ParentsvisitingCard', compact('visit_pass'));
+            $pdf = pdf::loadView('Parents.ParentsvisitingCard', compact('visit_pass'));
+            return $pdf->download('visiting-card.pdf');
+        }
+        else {
+            return view('auth.login');
+        }
+    }
 }
+

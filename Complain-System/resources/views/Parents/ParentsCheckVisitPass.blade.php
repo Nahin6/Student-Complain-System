@@ -38,7 +38,7 @@
                                 <thead class="thead-primary">
                                     <tr>
                                         <th>Your Name</th>
-                                        <th>Your number</th>
+                                        {{-- <th>Your number</th> --}}
                                         <th>Your expected visiting Date</th>
                                         <th>Your expected visiting Hour</th>
                                         <th>Visiting Pass Status</th>
@@ -49,10 +49,19 @@
                                     @foreach ($StoreVisitPass as $StoreVisitPass)
                                     <tr>
                                         <td>{{ $StoreVisitPass->name }}</td>
-                                        <td>{{ $StoreVisitPass->phone }}</td>
+                                        {{-- <td>{{ $StoreVisitPass->phone }}</td> --}}
                                         <td>{{ $StoreVisitPass->Date }}</td>
                                         <td>{{ $StoreVisitPass->VisitHour }}</td>
-                                        <td>{{ $StoreVisitPass->VisitingStatus }}</td>
+                                        <td>
+                                            @if ($StoreVisitPass->VisitingStatus=='Approved')
+                                            Visit pass approved. Download visit card <br>
+                                            <a type="button"
+                                                style="color:rgb(244, 251, 244); background-color:rgb(0, 170, 54)"
+                                                class="btn btn-danger  m-2"
+                                                href="{{ route('DownloadVisitPassButton', $StoreVisitPass->id) }} ">Download</a>
+                                            @else
+                                            {{ $StoreVisitPass->VisitingStatus }}
+                                            @endif</td>
                                         <td> <a type="button"
                                                 style="color:rgb(0, 6, 0); background-color:rgb(223, 92, 65)"
                                                 onClick="return confirm('Are you sure')" class="btn btn-danger  m-2"

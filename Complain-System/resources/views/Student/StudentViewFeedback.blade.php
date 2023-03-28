@@ -39,28 +39,33 @@
                                 <thead class="thead-primary">
                                     <tr>
                                         <th>Your Name</th>
-                                        <th>Complain Type</th>
-                                        <th>Complain Section</th>
-                                        <th>Detail Messages</th>
-                                        <th>Status</th>
-                                        <th>Remove Complain</th>
+                                        <th>Your Complain Type</th>
+                                        <th>Solution about your problem</th>
+                                        {{-- <th>Remove</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($Complain as $Complains)
-                                        <tr>
-                                            <td>{{ $Complains->StudentName }}</td>
-                                            <td>{{ $Complains->ComplainType }}</td>
-                                            <td>{{ $Complains->ComplainSection }}</td>
-                                            <td>{{ $Complains->Description }}</td>
-                                            <td>{{ $Complains->ComplainStatus }}</td>
-                                            <td>
-                                                <a type="button"
-                                                    style="color:rgb(0, 6, 0); background-color:rgb(223, 92, 65)"
-                                                    onClick="return confirm('Are you sure')" class="btn btn-danger  m-2"
-                                                    href="{{ url('RemoveComplainButton', $Complains->id) }} ">Remove</a>
-                                            </td>
-                                        </tr>
+                                    @foreach ($complaints as $Complains)
+                                        @if ($Complains->solution)
+                                            <tr>
+                                                <td>{{ $Complains->StudentName }}</td>
+                                                <td>{{ $Complains->ComplainType }}</td>
+                                                <td>{{ $Complains->solution }}</td>
+                                                {{-- <td><a type="button"
+                                                        style="color:rgb(0, 6, 0); background-color:rgb(223, 92, 65)"
+                                                        onClick="return confirm('Are you sure')"
+                                                        class="btn btn-danger  m-2"
+                                                        href="{{ route('RemoveFeedbackButton', $Complains->id) }} ">Remove</a>
+
+                                                    <form method="POST"
+                                                        action="{{ route('RemoveFeedbackButton', $Complains->solution_id) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit">Delete</button>
+                                                    </form>
+                                                </td> --}}
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
